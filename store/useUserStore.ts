@@ -17,8 +17,8 @@ export const useUserStore = create(
     (set) => ({
       user: null,
       session: null,
-      isLoggedIn: false,
-      isOnboarded: false,
+      isLoggedIn: true,
+      isOnboarded: true,
       setUser: (user: User | null) => set((state) => ({ user })),
       setIsLoggedIn: (isLoggedIn: boolean) => set((state) => ({ isLoggedIn })),
       setSession: (session: Session | null) => set((state) => ({ session })),

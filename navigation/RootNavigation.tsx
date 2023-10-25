@@ -26,11 +26,11 @@ export default function RootNavigation() {
           gestureDirection: "horizontal",
         }}
       >
-        {session && session.user ? (
-          <Stack.Screen name="TabNavigation" component={TabNavigation} />
+        <Stack.Screen name="TabNavigation" component={TabNavigation} />
+        {/* {session && session.user ? (
         ) : (
           <Stack.Screen name="AuthNavigation" component={AuthNavigation} />
-        )}
+          )} */}
       </Stack.Navigator>
     </NavigationContainer>
   );
