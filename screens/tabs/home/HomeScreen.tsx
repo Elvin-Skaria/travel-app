@@ -31,7 +31,7 @@ const CARD_WIDTH = SCREEN_WIDTH * 0.7;
 
 export default function HomeScreen() {
   const [activeCategory, setActiveCategory] = useState("");
-  const { navigate }: NavigationProp<TabNavigationType> = useNavigation();
+  const { navigate }: NavigationProp<TabNavigationType & HomeNavigationType> = useNavigation();
 
   const scrollX = useRef(new Animated.Value(0)).current;
 
@@ -57,7 +57,7 @@ export default function HomeScreen() {
         <ImageContainer>
           <PlaceImage source={item.image} alt="image" resizeMode="cover" />
         </ImageContainer>
-        <CardBottomView>
+        <CardBottomView onPress={() => navigate('PlaceDetail', { placeId: item.id })}>
           <BoldText>{item.location}</BoldText>
           <IconContainer
             style={{
@@ -71,10 +71,10 @@ export default function HomeScreen() {
                 item.category === "temples"
                   ? ShrineIcon
                   : item.category === "lakes"
-                  ? WaterIcon
-                  : item.category === "mountains"
-                  ? MountainIcon
-                  : GlobeIcon
+                    ? WaterIcon
+                    : item.category === "mountains"
+                      ? MountainIcon
+                      : GlobeIcon
               }
               style={{ width: 16, height: 16 }}
             />
@@ -213,7 +213,7 @@ const CardsContainer = styled(View)`
   border-radius: 20px;
 `;
 
-const CardBottomView = styled(View)`
+const CardBottomView = styled(TouchableOpacity)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;

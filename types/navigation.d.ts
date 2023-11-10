@@ -19,6 +19,7 @@ type TabNavigationType = {
 //tabs nav types
 type HomeNavigationType = {
   Home: undefined;
+  PlaceDetail: undefined;
 };
 
 type ProfileNavigationType = {
